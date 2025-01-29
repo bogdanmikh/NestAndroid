@@ -30,11 +30,13 @@ std::optional<std::pair<Foundation::Memory, int>> AssetLoader::readFile(const st
     if (asset) {
         off_t fileLength = AAsset_getLength(asset);
 
-        void *buffer = malloc(fileLength);
-        AAsset_read(asset, buffer, fileLength);
+        void *buffer = malloc(fileLength + 1);
+        int size = AAsset_read(asset, buffer, fileLength);
 
-        res.first = Foundation::Memory::copying(buffer, fileLength);
-        res.second = fileLength;
+        static_cast<char*>(buffer)[size] = '\0';
+
+        res.first = Foundation::Memory::copying(buffer, size + 1);
+        res.second = size;
         assetLoaded = true;
 
         free(buffer);
