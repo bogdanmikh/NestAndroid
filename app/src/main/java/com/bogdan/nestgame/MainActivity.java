@@ -1,12 +1,10 @@
 package com.bogdan.nestgame;
 
+import android.app.NativeActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.google.androidgamesdk.GameActivity;
-
-public class MainActivity extends GameActivity {
-
+public class MainActivity extends NativeActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

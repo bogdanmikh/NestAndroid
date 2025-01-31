@@ -46,10 +46,10 @@ dependencies {
 }
 
 
-task copyAssets(type: Copy) {
-    def libName = "NestCraft"
-    from 'main/cpp/bin/${libName}' // Папка, из которой вы копируете
-    into 'main/assets/' // Папка, в которую вы копируете
-}
+//task copyAssets(type: Copy) {
+//    def libName = "NestCraft"
+//    from 'main/cpp/bin/${libName}' // Папка, из которой вы копируете
+//    into 'main/assets/' // Папка, в которую вы копируете
+//}
 
-preBuild.dependsOn(copyAssets)
+//preBuild.dependsOn(copyAssets)
