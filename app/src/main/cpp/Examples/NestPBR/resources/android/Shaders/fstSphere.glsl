@@ -1,6 +1,4 @@
 #version 300 es
-precision mediump float;
-
 in vec2 TexCoord;
 in vec3 Normal;
 in vec3 Position;
@@ -24,8 +22,7 @@ void main() {
     vec2 st = gl_FragCoord.xy / iResolution;
     vec3 I = normalize(Position - cameraPos);
     vec3 R = reflect(I, normalize(Normal));
-    vec3 color = texture(iTexture, TexCoord).rgb;
-    // vec3 color = mix(texture(iTexture, TexCoord).rgb, texture(iSky, R).rgb, metallic);
-   // fragColor = vec4(1.0);
+    vec3 color = mix(texture(iTexture, TexCoord).rgb, texture(iSky, R).rgb, metallic);
+//    vec3 color = texture(iTexture, TexCoord).rgb;
     fragColor = vec4(color, 1.0);
 }

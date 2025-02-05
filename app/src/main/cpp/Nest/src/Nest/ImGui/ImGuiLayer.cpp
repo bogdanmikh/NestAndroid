@@ -40,7 +40,7 @@ void ImGuiLayer::onAttach() {
     FontConfiguration fontDefault;
     fontDefault.fontName = "Default";
     fontDefault.fileName = "SF-Compact/SF-Compact-Display-Regular.otf";
-    fontDefault.size = 17.0f;
+    fontDefault.size = 40.0f;
     Fonts::add(fontDefault, true);
 
     static const ImWchar s_fontAwesomeRanges[] = {ICON_MIN, ICON_MAX, 0};
