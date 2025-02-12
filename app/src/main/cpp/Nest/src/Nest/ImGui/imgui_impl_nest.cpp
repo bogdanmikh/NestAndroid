@@ -166,10 +166,8 @@ static void ImGui_ImplNest_UpdateKeyModifiers() {
 
 IMGUI_IMPL_API void ImGui_ImplNest_HandleEvent(Nest::Event *event) {
     using namespace Nest;
-
     ImGuiIO &io = ImGui::GetIO();
     ImGui_NestPlatformData *pd = ImGui_ImplGlfw_GetBackendData();
-
     switch (event->type) {
         case EventType::None:
             break;
@@ -257,7 +255,6 @@ IMGUI_IMPL_API void ImGui_ImplNest_HandleEvent(Nest::Event *event) {
             break;
         }
         case EventType::TouchBegan: {
-            ImGui_ImplNest_UpdateKeyModifiers();
             const TouchBeganEvent *ev = static_cast<const TouchBeganEvent *>(event);
             io.AddMousePosEvent((float)ev->x, (float)ev->y);
             io.AddMouseButtonEvent(0, true);
@@ -265,6 +262,7 @@ IMGUI_IMPL_API void ImGui_ImplNest_HandleEvent(Nest::Event *event) {
             break;
         }
         case EventType::TouchEnded: {
+            const TouchEndedEvent *ev = static_cast<const TouchEndedEvent *>(event);
             io.AddMouseButtonEvent(0, false);
             event->isHandled = io.WantCaptureMouse;
             break;
@@ -272,7 +270,6 @@ IMGUI_IMPL_API void ImGui_ImplNest_HandleEvent(Nest::Event *event) {
         case EventType::TouchMoved: {
             const TouchMovedEvent *ev = static_cast<const TouchMovedEvent *>(event);
             io.AddMousePosEvent((float)ev->x, (float)ev->y);
-            io.AddMouseButtonEvent(0, true);
             event->isHandled = io.WantCaptureMouse;
             break;
         }

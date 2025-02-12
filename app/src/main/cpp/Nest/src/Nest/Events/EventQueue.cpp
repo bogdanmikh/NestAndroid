@@ -8,6 +8,8 @@
 #include "Nest/Events/TouchEvents.hpp"
 #include "Nest/Events/WindowEvents.hpp"
 
+#include <android/log.h>
+
 namespace Nest {
 
 EventQueue::EventQueue()
@@ -75,8 +77,8 @@ void EventQueue::postTouchMovedEvent(int id, float x, float y) {
     m_events.write(event);
 }
 
-void EventQueue::postTouchEndedEvent(int id) {
-    TouchEndedEvent event(id);
+void EventQueue::postTouchEndedEvent(int id, float x, float y) {
+    TouchEndedEvent event(id, x, y);
     m_events.write(event);
 }
 

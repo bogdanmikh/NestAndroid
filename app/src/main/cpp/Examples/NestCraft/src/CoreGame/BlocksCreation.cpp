@@ -106,7 +106,7 @@ void BlocksCreation::onImGuiRender() {
         glm::vec3 position = m_camera->getPosition();
         glm::vec3 target = m_camera->getFront();
         auto v = m_chunksStorage->bresenham3D(
-                position.x, position.y, position.z, target.x, target.y, target.z, MAXIMUM_DISTANCE
+            position.x, position.y, position.z, target.x, target.y, target.z, MAXIMUM_DISTANCE
         );
         if (v && v->voxel != nullptr) {
             int x = v->end.x + v->normal.x;
@@ -122,7 +122,7 @@ void BlocksCreation::onImGuiRender() {
         glm::vec3 position = m_camera->getPosition();
         glm::vec3 target = m_camera->getFront();
         auto v = m_chunksStorage->bresenham3D(
-                position.x, position.y, position.z, target.x, target.y, target.z, MAXIMUM_DISTANCE
+            position.x, position.y, position.z, target.x, target.y, target.z, MAXIMUM_DISTANCE
         );
         if (v && v->voxel != nullptr) {
             int x = v->end.x;

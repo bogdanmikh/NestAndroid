@@ -34,7 +34,7 @@ void ImGuiLayer::onAttach() {
     FontConfiguration fontLarge;
     fontLarge.fontName = "Large";
     fontLarge.fileName = "SF-Compact/SF-Compact-Display-Regular.otf";
-    fontLarge.size = 22.0f;
+    fontLarge.size = 80.0f;
     Fonts::add(fontLarge);
 
     FontConfiguration fontDefault;
