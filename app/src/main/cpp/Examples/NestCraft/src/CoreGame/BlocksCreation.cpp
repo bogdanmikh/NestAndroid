@@ -97,9 +97,14 @@ void BlocksCreation::onImGuiRender() {
     }
     ImGui::End();
 #else
+    ImGuiWindowFlags windowFlags = ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize |
+                                   ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoScrollbar |
+                                   ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoBackground |
+                                   ImGuiWindowFlags_AlwaysAutoResize;
+
     float coeff = 0.5;
     ImGui::SetNextWindowPos({600, 600});
-    ImGui::Begin("Create", nullptr);
+    ImGui::Begin("Create", nullptr, windowFlags);
 
     ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.0f, 0.0f, 0.0f, 1.0f));
     if (ImGui::Button("##create", {200, 200})) {

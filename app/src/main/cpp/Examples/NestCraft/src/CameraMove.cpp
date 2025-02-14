@@ -100,13 +100,12 @@ void CameraMove::onUpdate(double deltaTime) {
     for (int i = 0; i < Input::touchCount(); ++i) {
         Input::Touch currentTouch = Input::getTouch(i);
         Nest::Vec2 pos = {currentTouch.x, currentTouch.y};
-
         //        if (button(currentTouch, buttonLeft)) {
         //            m_worldCamera->translateLocal(0, 0., cameraSpeed * deltaTime * 0.5);
         //        } else if (button(currentTouch, buttonRight)) {
         //            m_worldCamera->translateLocal(0, 0., -cameraSpeed * deltaTime * 0.5);
         //        }
-        if (currentTouch.x >= resolution.x / 2) {
+        if (!found && currentTouch.x >= resolution.x / 2) {
             delta = lastPos - pos;
             if (lastPos == Nest::Vec2(0, 0)) {
                 delta = {0, 0};
@@ -119,7 +118,6 @@ void CameraMove::onUpdate(double deltaTime) {
     if (!found) {
         lastPos = {0, 0};
     }
-
 #endif
     m_worldCamera->rotate(-delta.y * mouseSpeed, -delta.x * mouseSpeed, 0.f);
 }
