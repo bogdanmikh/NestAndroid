@@ -8,8 +8,6 @@
 #include "Nest/Events/TouchEvents.hpp"
 #include "Nest/Events/WindowEvents.hpp"
 
-#include <android/log.h>
-
 namespace Nest {
 
 EventQueue::EventQueue()

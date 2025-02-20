@@ -11,6 +11,7 @@
 #include "imgui_impl_nest.hpp"
 // ImGui renderer impl
 #include "imgui_impl_bird.hpp"
+#include <Foundation/PlatformDetection.hpp>
 
 namespace Nest {
 
@@ -34,13 +35,21 @@ void ImGuiLayer::onAttach() {
     FontConfiguration fontLarge;
     fontLarge.fontName = "Large";
     fontLarge.fileName = "SF-Compact/SF-Compact-Display-Regular.otf";
+#ifdef PLATFORM_ANDROID
     fontLarge.size = 80.0f;
+#elif defined(PLATFORM_DESKTOP)
+    fontLarge.size = 22.0f;
+#endif
     Fonts::add(fontLarge);
 
     FontConfiguration fontDefault;
     fontDefault.fontName = "Default";
     fontDefault.fileName = "SF-Compact/SF-Compact-Display-Regular.otf";
+#ifdef PLATFORM_ANDROID
     fontDefault.size = 40.0f;
+#else
+    fontDefault.size = 17.0f;
+#endif
     Fonts::add(fontDefault, true);
 
     static const ImWchar s_fontAwesomeRanges[] = {ICON_MIN, ICON_MAX, 0};

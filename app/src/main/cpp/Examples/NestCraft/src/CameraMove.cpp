@@ -80,7 +80,9 @@ void CameraMove::onUpdate(double deltaTime) {
     Nest::Vec2 delta = {0, 0};
 #ifdef PLATFORM_DESKTOP
     mouseSpeed = 0.1f;
-    Nest::Vec2 cursorPos = {Nest::Input::getMousePositionX(), Nest::Input::getMousePositionY()};
+    Nest::Vec2 cursorPos = {
+        (float)Nest::Input::getMousePositionX(), (float)Nest::Input::getMousePositionY()
+    };
     delta = lastPos - cursorPos;
     if (resetMouse)
         delta = Nest::Vec2(0, 0);

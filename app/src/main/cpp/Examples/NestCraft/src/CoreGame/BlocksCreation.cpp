@@ -83,20 +83,7 @@ void BlocksCreation::update(double deltaTime) {
 }
 
 void BlocksCreation::onImGuiRender() {
-#ifndef PLATFORM_ANDROID
-    ImGui::SetNextWindowPos(ImVec2(500.0f, 500.0f));
-    ImGui::Begin("Block");
-    if (ImGui::Button("TREE")) {
-        m_selectedBlock = VoxelType::TREE;
-    }
-    if (ImGui::Button("STONE BRICKS")) {
-        m_selectedBlock = VoxelType::STONE_BRICKS;
-    }
-    if (ImGui::Button("BOARDS")) {
-        m_selectedBlock = VoxelType::BOARDS;
-    }
-    ImGui::End();
-#else
+#ifdef PLATFORM_ANDROID
     ImGuiWindowFlags windowFlags = ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize |
                                    ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoScrollbar |
                                    ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoBackground |
